@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBH</title>
+    <style>
+
+      @keyframes jumped {
+        0% {
+          top:32vh;
+        }
+        50% {
+          top:20vh;
+        }
+        100% {
+          top:32vh;
+        }
+      }
+      * {
+        padding:0;
+        margin:0;
+        box-sizing:border-box;
+      }
+      body {
+        width:100%;
+        height:100vh;
+        overflow:none;
+        font-family:sans-serif;
+      }
+      #main {
+        position: relative;
+      }
+      button {
+        cursor: pointer;
+      }
+      .viewPort {
+        display:none;
+        margin-left:5px;
+        font-size:3vw;
+      }
+      .ui {
+        position: relative;
+        z-index:999999999;
+      }
+      label {
+    position:relative;
+  }
+   #check {
+      opacity:0;
+      height:0;
+      width:0;
+    }
+      #left,#right {
+        position: relative;
+        margin-top:26vh;
+        margin-left:1vw;
+        padding:1vw 2vw;
+        z-index: 9999999;
+        border-radius:10px;
+        border:3px solid darkred;
+        background: black;
+        color:red;
+        user-select:none;
+      }
+ #switch {
+   position:absolute;
+   display:inline-block;
+   width:80px;
+   height:35px;
+   background:gray;
+   border-radius:84px;
+   margin-left:10px;
+   margin-top:-10px;
+ }
+ #switch_circle {
+   position: absolute;
+   width:25px;
+   height:25px;
+   background-image:url("./images/On.jpg");
+   background-size:cover;
+   background-repeat:no-repeat;
+   left:4px;
+   top:4px;
+   border-radius:50%;
+   transition:0.5s;
+ }
+#check:checked + #switch {
+  background:darkred;
+}
+#check:checked + #switch #switch_circle {
+  background-image:url("./images/Off.jpg");
+  transform:translateX(45px);
+}
+.disabledButton {
+  pointer-events:none;
+  opacity: 50%;
+}
+     #jump-Container { 
+       display:none;
+       margin-top:-30vh;
+       margin-left:15vw;
+       position: absolute;
+     }
+      #jump {
+  position:absolute;
+  z-index:9999999;
+  margin-left:50vw;
+  margin-top:17vh;
+  width:8vw;
+  height:8vw;
+  background-image:url("./images/jumpBtn.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center;
+  border-radius:50%;
+  border:none;
+      }
+      #phone {
+        pointer-events: none;
+        width:20vw;
+        height:83vh;
+        position: relative;
+        z-index:5555555555555;
+        border-radius:2vw;
+        border:2vw solid black;
+        margin-left:75vw;
+        margin-top: 8vh;
+        display:none;
+      }
+      .textCutsence {
+        color:white;
+        display:none;
+        font-size:4vw;
+      }
+      .ui {display:none;}
+      @media(orientation:portrait) {
+        body {background:black;}
+        #main {display:none;}
+      }
+        @media(orientation:landscape) {
+        body {
+          background-image:url("./images/Bg.jpg");
+          background-repeat:no-repeat;
+          background-size:100% 100%;
+        }
+        #main {display:block;}
+        }
+      @media(max-width:600px) {
+        #Phone {display:block;}
+      }
+      @media(min-width:750px) and (max-width:1024px) {
+        #Tablet {display:block;}
+        #Phone {display:none;}
+      }
+      @media(min-width:1025px) and (max-width:7680px) {
+        #DeskTop {display:block;}
+        #Phone {display:none;}
+      }
+    </style>
+    <script type="module" src="./modules/game.js"></script>
+  </head>
+  <body>
+ <p class="viewPort" id="Phone">
+   Phone viewport
+ </p>
+  <p class="viewPort" id="Tablet">
+    Tablet viewport
+  </p>
+    <p class="viewPort" id="DeskTop">
+    DeskTop viewport
+    </p>
+<div id="main">
+  <iframe id="phone" src="./telephone.html"></iframe>
+  <button aria-label="to left" class="ui" id="left"> <= </button>
+  <button aria-label="to right" class="ui" id="right"> =></button>
+  <label aria-label="music on or off" class="ui">
+    <input id="check" type="checkbox">
+    <span id="switch">
+      <span id="switch_circle"></span>
+    </span>
+  </label>
+  <button aria-label="jump" class="ui" id="jump"></button>
+ <div class="textCutsence">
+   Coming Soon... (Game Still in Dev)
+
+   
+  <p>Play dbh football by this link!</p>
+  <a href="./football.html">Football</a>
+ </div>
+  
+</div>
+  </body>
+</html>
